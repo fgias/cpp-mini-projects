@@ -11,5 +11,13 @@ int main() {
 
     cout << "Your name is: " << input << endl;
 
+    cout << "Enter a number: " << flush;
+
+    int value;
+
+    cin >> value;
+
+    cout << "You entered: " << value << endl;
+
     return 0;
 }
