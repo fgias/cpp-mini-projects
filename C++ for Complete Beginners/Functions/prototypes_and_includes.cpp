@@ -1,9 +1,8 @@
-#include <iostream>
-using namespace std;
+#include <iostream> // preprocessor directive
 
-void doSomething(); // "prototype"
-// without this function main() cannot compile
-// now main() compiles even though the doSomething() function is defined below main()
+#include "utils.h" // preprocessor directive
+
+using namespace std;
 
 int main() {
     
