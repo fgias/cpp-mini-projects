@@ -10,14 +10,14 @@ void showMenu() {
     cout << endl;
 }
 
-int requestInput() {
+int getInput() {
     cout << endl << "Enter selection > " << flush;
     int input;
     cin >> input;
     return input;
 }
 
-void switchInput(int input) {
+void processSelection(int input) {
     switch(input) {
         case 1:
         cout << "Starting single player game ..." << endl;
@@ -37,9 +37,10 @@ void switchInput(int input) {
 }
 
 int main() {
+    
     showMenu();
-    int input = requestInput();
-    switchInput(input);
+    int input = getInput();
+    processSelection(input);
 
     return 0;
 }
