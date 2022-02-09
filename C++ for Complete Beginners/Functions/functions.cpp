@@ -1,6 +1,20 @@
 #include <iostream>
 using namespace std;
 
+void showMenu(); // Adding the prototypes before main()
+int getInput();
+void processSelection(int);
+
+int main() {
+    
+    showMenu();
+    int input = getInput();
+    processSelection(input);
+
+    return 0;
+}
+
+// the actual functions
 void showMenu() {
     cout << endl << "Main menu" << endl;
     cout << "======================" << endl;
@@ -34,13 +48,4 @@ void processSelection(int input) {
         default:
         cout << "Unrecognized command, quitting game ..." << endl;
     }
-}
-
-int main() {
-    
-    showMenu();
-    int input = getInput();
-    processSelection(input);
-
-    return 0;
 }
