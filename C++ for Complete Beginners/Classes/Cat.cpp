@@ -3,6 +3,10 @@
 
 using namespace std;
 
-void speak() {
+void Cat::speak() {
     cout << "Meowww!" << endl;
+}
+
+void Cat::jump() {
+    cout << "Jumping to top of bookcase." << endl;
 }

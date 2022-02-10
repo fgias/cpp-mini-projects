@@ -6,6 +6,11 @@ using namespace std;
 // g++ classes.cpp Cat.cpp -o classes
 
 int main() {
-    speak();
+
+    Cat cat; // same as `int value;` etc
+
+    cat.speak();
+    cat.jump();
+
     return 0;
 }
