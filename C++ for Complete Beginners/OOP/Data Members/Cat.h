@@ -2,10 +2,13 @@
 #define CAT_H_
 
 class Cat {
-    public:
+    private:
     bool happy;
-    void speak();
 
+    public:
+    void makeHappy();
+    void makeSad();
+    void speak();
 };
 
 #endif

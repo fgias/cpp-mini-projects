@@ -4,12 +4,12 @@ using namespace std;
 
 int main() {
     Cat cat;
-    cat.happy = false;
+    cat.makeHappy();
     cat.speak();
 
 
     Cat bob;
-    bob.happy = true;
+    bob.makeSad();
     bob.speak();
 
     return 0;
