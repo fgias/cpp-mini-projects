@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
 
-void manipulate(double value) {
-    cout << "2. Value of double in manipulate:" << value << endl;
-    value = 10;
-    cout << "3. Value of double in manipulate: " << value << endl;
+void manipulate(double *pValue) {
+    cout << "2. Value of double in manipulate:" << *pValue << endl;
+    *pValue = 10; // go to that memory adress and change the value stored in it
+    cout << "3. Value of double in manipulate: " << *pValue << endl;
 };
 
 
@@ -13,7 +13,7 @@ int main() {
 
     int nValue = 8;
 
-    int* pnValue = &nValue; // `int*` = "int pointer", which means a pointer to an int, 
+    int *pnValue = &nValue; // `int *pnValue` = "int pointer", which means a pointer to an int, 
     // `&nValue` = "memory address of nValue"
 
     nValue = 9;
@@ -26,7 +26,7 @@ int main() {
     cout << endl << "=================================" << endl;
     double dValue = 123.4;
     cout << "1. dValue: " << dValue << endl;
-    manipulate(dValue);
+    manipulate(&dValue);
     cout << "4. dValue: " << dValue << endl;
 
 
@@ -36,5 +36,6 @@ int main() {
 
 
 // int*: type of the variable, pointer to an int
+// or easier, int *pValue: when I dereference pValue I get an int
 // &: get memory address
 // *pnValue: access the value that the pointer points to
