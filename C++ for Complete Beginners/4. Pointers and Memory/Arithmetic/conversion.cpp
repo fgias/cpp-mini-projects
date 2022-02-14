@@ -1,3 +1,5 @@
+// convert a large number of seconds into hours, minutes and seconds.
+
 #include <iostream>
 #include <sstream>
 using namespace std;
