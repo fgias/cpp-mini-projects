@@ -4,7 +4,7 @@ using namespace std;
 class Animal {
 private:
 
-    char name; // instance variable
+    string name; // instance variable
 
 public:
 
@@ -20,7 +20,7 @@ public:
         cout << "Destructor called." << endl;
     }; // destructor
 
-    void setName(char name) {
+    void setName(string name) {
         this->name = name;
     };
 
@@ -36,12 +36,12 @@ int main() {
     Animal* pAnimals = new Animal[26];
 
     char c = 'a';
-
-    for (int i=0; i<26; i++, c = (char)((int)c+1)) {
-        pAnimals[i].setName(c);
+    for (int i=0; i<26; i++, c++) {
+        string name(1,c);
+        pAnimals[i].setName(name);
     }
 
-    for (int i=0; i<26; i++, c = (char)((int)c+1)) {
+    for (int i=0; i<26; i++) {
         pAnimals[i].speak();
     }
 
