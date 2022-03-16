@@ -1,0 +1,67 @@
+Finding the libraries files
+--------------------------------------------------------------------------------
+You can put the libraries anywhere. 
+Though on Unix systems, it is customary to put them in /usr/local/. 
+The library files (.a, .dylib, etc) will go into /usr/local/lib 
+while the header files will all go into /usr/local/include.
+
+In order to get the compiler to look into those directories when compiling,
+you need to specify them. You do that by passing the flag -I/usr/local/include 
+to tell the compiler to look there for include files, and -L/usr/local/lib to 
+tell the linker to look there for the libraries.
+
+Error:
+"ld: can't link with a main executable file 'sdl_test' for architecture arm64"
+--------------------------------------------------------------------------------
+What's happening is that the first rule is building main.o just like you asked, 
+but instead of being an object file, it's actually the complete, compiled and 
+linked program.
+
+When the second rule tries to use it as an object file, the linker finds that 
+it's not an object file at all and produces "can't link with a main executable 
+file."
+
+Obviously for a more complex program, one with multiple object files or 
+with library dependencies, it would not be able to build an executable from 
+just the one source file, so you'll get a different error and never get as far 
+as the link rule.
+
+The solution, of course, is to add -c to the first rule so that the first 
+invocation only compiles and does not link, producing an actual object file.
+
+
+
+Separate Compilation Tutorial
+--------------------------------------------------------------------------------
+https://www.cs.utah.edu/~zachary/isp/tutorials/separate/separate.html
+
+To summarize, the steps involved in compiling, linking, and running a 
+program are:
+
+1. Compile the `.cpp` file containing the source code:
+    `g++ sdl_test.cpp -Wall -g -c -I /opt/local/include/SDL2`
+
+The -Wall part is optional but is strongly encouraged--it tells C to 
+produce all possible warning messages. A warning message will usually 
+lead you to a bug in your program. The -g tells the compiler to include 
+information needed by the debugger.
+
+2. Link the ``.o'' file to produce an executable
+    `g++ sdl_test.o -o exec -lm -L /opt/local/lib`
+
+The -o hello in the command is important--it tells C what to name the 
+executable. The -lm part tells C to link in the math libraries. If your 
+program doesn't use any of the match functions from ``math.h'', you 
+can leave this part out.
+
+3. Run the executable in the usual way.
+    `./exec`
+
+
+Compilation for this program
+--------------------------------------------------------------------------------
+All together:
+
+g++ sdl_test.cpp -Wall -g -c -I /opt/local/include/SDL2; 
+g++ sdl_test.o -o exec -lm -L /opt/local/lib; 
+./exec
