@@ -1,0 +1,16 @@
+Libraries
+================================================================================
+
+Preprocessor, Compilation (.o), Link (.exe or no suffix)
+
+Static libraries - actually compiled into your program
+Dynamic libraries - program finds code at run time
+
+Static: 
+* windows - XYZ.lib
+* unix/linux/macos - libXYZ.a
+
+Dynamic:
+* windows - XYZ.dll
+* unix/linux/macos - libXYZ.so
+* macos - XYZ.dylib
