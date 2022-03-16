@@ -44,3 +44,8 @@ int main() {
 
     return 0;
 }
+
+// to run:
+// g++ sdl_test.cpp -Wall -g -c -I /opt/local/include/SDL2 -D_THREAD_SAFE; 
+// g++ sdl_test.o -o exec -lm -L /opt/local/lib -lSDL2;
+// ./exec
