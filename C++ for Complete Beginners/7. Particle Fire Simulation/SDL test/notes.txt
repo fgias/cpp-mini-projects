@@ -10,6 +10,8 @@ you need to specify them. You do that by passing the flag -I/usr/local/include
 to tell the compiler to look there for include files, and -L/usr/local/lib to 
 tell the linker to look there for the libraries.
 
+In this machine, SDL2 was installed in the /opt folder.
+
 Error:
 "ld: can't link with a main executable file 'sdl_test' for architecture arm64"
 --------------------------------------------------------------------------------
@@ -30,6 +32,17 @@ The solution, of course, is to add -c to the first rule so that the first
 invocation only compiles and does not link, producing an actual object file.
 
 
+SDL compling and linking switches
+--------------------------------------------------------------------------------
+The following command is installed along with SDL and it tells you the correct
+switches for compiling and linking:
+
+run `sdl2-config --cflags --libs`
+
+for this machine, that gives:
+
+-I/opt/local/include/SDL2 -D_THREAD_SAFE
+-L/opt/local/lib -lSDL2
 
 Separate Compilation Tutorial
 --------------------------------------------------------------------------------
@@ -39,7 +52,7 @@ To summarize, the steps involved in compiling, linking, and running a
 program are:
 
 1. Compile the `.cpp` file containing the source code:
-    `g++ sdl_test.cpp -Wall -g -c -I /opt/local/include/SDL2`
+    `g++ sdl_test.cpp -Wall -g -c -I /opt/local/include/SDL2 -D_THREAD_SAFE`
 
 The -Wall part is optional but is strongly encouraged--it tells C to 
 produce all possible warning messages. A warning message will usually 
@@ -47,7 +60,7 @@ lead you to a bug in your program. The -g tells the compiler to include
 information needed by the debugger.
 
 2. Link the ``.o'' file to produce an executable
-    `g++ sdl_test.o -o exec -lm -L /opt/local/lib`
+    `g++ sdl_test.o -o exec -lm -L /opt/local/lib -lSDL2`
 
 The -o hello in the command is important--it tells C what to name the 
 executable. The -lm part tells C to link in the math libraries. If your 
@@ -58,10 +71,10 @@ can leave this part out.
     `./exec`
 
 
-Compilation for this program
+Compilation in this machine
 --------------------------------------------------------------------------------
 All together:
 
-g++ sdl_test.cpp -Wall -g -c -I /opt/local/include/SDL2; 
-g++ sdl_test.o -o exec -lm -L /opt/local/lib; 
+g++ sdl_test.cpp -Wall -g -c -I /opt/local/include/SDL2 -D_THREAD_SAFE; 
+g++ sdl_test.o -o exec -lm -L /opt/local/lib -lSDL2;
 ./exec
