@@ -31,6 +31,7 @@ int main() {
     SDL_Texture *texture = SDL_CreateTexture(
         renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC,
         SCREEN_WIDTH, SCREEN_HEIGHT
+        // RGB: colours, A: "alpha" - transparency
     );
 
     if (renderer == NULL) {
@@ -53,9 +54,16 @@ int main() {
     // being processed or transferred, especially one used while streaming 
     // video or downloading audio.
 
-    memset(buffer, 0xFF, SCREEN_WIDTH*SCREEN_HEIGHT*sizeof(Uint32));
+    memset(buffer, 0, SCREEN_WIDTH*SCREEN_HEIGHT*sizeof(Uint32));
     // set all the bytes to the maximum possible value
     // 0x: hexadecimal, FF: 255 (max for 1 byte/ 8 bits)
+
+    buffer[30000] = 0xFFFFFFFF; // set all 4 bytes (RGBA) to the max value (255)
+    // a pair = 1 byte
+
+    for (int i=0; i<SCREEN_WIDTH*SCREEN_HEIGHT; i++) {
+        buffer[i] = 0xFFFF00FF;
+    }
 
     SDL_UpdateTexture(texture, NULL, buffer, SCREEN_WIDTH*sizeof(Uint32));
     SDL_RenderClear(renderer); 
