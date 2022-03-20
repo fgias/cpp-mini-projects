@@ -15,7 +15,7 @@ public:
 
 public:
     Test() {id = ++count;} // count incremented and then assigned to id (pre-fix increment operator)
-    // `id = count++`: count assigned to id and the incremented (post-fix increment operator)
+    // `id = count++`: count assigned to id and then incremented (post-fix increment operator)
 
     int getId() {return id;}
 
