@@ -44,6 +44,10 @@ for this machine, that gives:
 -I/opt/local/include/SDL2 -D_THREAD_SAFE
 -L/opt/local/lib -lSDL2
 
+-I : where to find .h files to include
+-L : where to find the library files etc. (eg .a in MacOS)
+-l : which libraries to link from the libraries folder in option -L
+
 Separate Compilation Tutorial
 --------------------------------------------------------------------------------
 https://www.cs.utah.edu/~zachary/isp/tutorials/separate/separate.html
