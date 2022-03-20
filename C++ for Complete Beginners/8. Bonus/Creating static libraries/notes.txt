@@ -1,0 +1,19 @@
+In order to use the animals static library that you created, 
+do the following, in the Eclipse IDE:
+
+- Right click your Project under “Package Explorer” and select Properties.
+
+- Select "C/C++ General > Paths and Symbols"
+
+- In the "Library Paths" section, add the path were the library 
+files (.a for MacOS) can be found: in this case it is the `libanimals.a` file
+(this is the -L option)
+
+- In the "Libraries" section, add the names of the libraries, not of the 
+files: in this case the filename is `libanimals.a` but the actual name 
+of the library is `animals` 
+(this is the -l option)
+
+- In the "Includes" section, add the path were (the library's) .h files to 
+be included are: in this case the file `Cat.h`
+(this is the -I option)
