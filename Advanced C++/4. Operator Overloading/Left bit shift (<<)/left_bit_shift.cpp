@@ -25,6 +25,8 @@ public:
     friend ostream& operator<<(ostream& out, const Test& test);
 };
 
+// overloading the string insertion / left bit shift (<<) operator
+
 ostream& operator<<(ostream& out, const Test& test) {
     out << test.id << ": " << test.name;
     return out;
