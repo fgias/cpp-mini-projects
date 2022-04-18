@@ -28,5 +28,12 @@ int main() {
         cout << value << endl;
     }
 
+    // with initializer list
+    cout << endl;
+    ring<string> test{"zero", "une", "deux", "trois"};
+    for (auto value: test) {
+        cout << value << endl;
+    }
+
     return 0;
 }

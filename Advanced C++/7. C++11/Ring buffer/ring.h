@@ -18,6 +18,17 @@ public:
     ring(int size): m_pos(0), m_size(size), m_values(NULL) {
         m_values = new T[size];
     }
+    ring(initializer_list<T> init_list) {
+        m_pos = 0;
+        m_size = init_list.size();
+        m_values = new T[m_size];
+        // m_values = NULL;
+
+        for (auto obj: init_list) {
+            m_values[m_pos] = obj;
+            m_pos++;
+        }
+    }
     ~ring() {
         delete [] m_values;
     }
