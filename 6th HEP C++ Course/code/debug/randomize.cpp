@@ -30,8 +30,8 @@ void createAndFillVector(int** v, unsigned int len) {
 int main() {
     int *v = nullptr;
     // create and randomize vector
-    randomize(v, LEN+1);
     createAndFillVector(&v, LEN+1);
+    randomize(v, LEN+1);
 
     // compute diffs
     int *diffs = new int[LEN];

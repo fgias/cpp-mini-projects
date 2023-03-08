@@ -1,0 +1,21 @@
+Debugging instructions
+--------------------------
+
+# Compile the program with -g flag (to enable debugging)
+c++ -std=c++17 -g -O0 -L. -o randomize randomize.cpp
+
+# Start the debugger (`lldb` or `gdb`) with the generated binary 
+lldb randomize
+
+# Run the program
+run
+
+# See the backtrace (aka stack trace etc.)
+bt
+
+# Inspect some values
+p a
+p b
+
+# Quit
+q
