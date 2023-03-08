@@ -1,0 +1,7 @@
+make clean # Clean space from .o etc.
+
+c++ -std=c++17 -Wall -Wextra functions.cpp -E > output.txt # Preprocessor only
+
+c++ -std=c++17 -Wall -Wextra functions.cpp Structs.cpp -c # Compiler only
+
+c++ -std=c++17 -Wall -Wextra functions.cpp Structs.cpp -o functions # All steps together
