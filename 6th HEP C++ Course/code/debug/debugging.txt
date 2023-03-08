@@ -4,7 +4,7 @@ Debugging instructions
 # Compile the program with -g flag (to enable debugging)
 c++ -std=c++17 -g -O0 -L. -o randomize randomize.cpp
 
-# Start the debugger (`lldb` or `gdb`) with the generated binary 
+# Start the debugger `lldb` (for MacOS or `gdb` for other platforms) with the generated binary 
 lldb randomize
 
 # Run the program
@@ -16,6 +16,17 @@ bt
 # Inspect some values
 p a
 p b
+
+# Show code around current point
+list
+
+# Go up or down in call stack with arrows
+
+# Set breakpoints at a specific line
+b randomize.cpp:35
+
+# Move to next line
+next (or step)
 
 # Quit
 q
