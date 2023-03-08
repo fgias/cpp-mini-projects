@@ -1,0 +1,9 @@
+Instructions:
+
+Install: e.g. brew install clang-format
+
+Run formatting:
+
+clang-format --style=LLVM -i <file.cpp> 
+clang-format -i <file.cpp> (looks for .clang-format file) 
+git clang-format (formats only the local changes)
