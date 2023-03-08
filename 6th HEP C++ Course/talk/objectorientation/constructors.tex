@@ -24,7 +24,7 @@
     \end{cppcode*}
     \columnbreak
     \begin{cppcode*}{gobble=2,firstnumber=10}
-      // note: special notation for
+      // note special notation for
       // initialization of members
       MyFirstClass() : a(0) {}
 
@@ -81,7 +81,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitlecpp[11]{Copy constructor}
+  \frametitlecpp[98]{Copy constructor}
   \begin{block}{Concept}
     \begin{itemize}
     \item special constructor called for replicating an object
@@ -136,9 +136,8 @@
     \item A constructor with a single non-default parameter can be used by the compiler for an implicit conversion.
     \end{itemize}
   \end{block}
-  \begin{exampleblockGB}{Example}{https://godbolt.org/z/TvqT185fz}{Unary constructor in action}
-    \begin{cppcode}
-    void print(const Vector & v) {
+  \begin{cppcode}
+    void print( const Vector & v )
       std::cout<<"printing v elements...\n";
     }
 
@@ -147,8 +146,7 @@
       // then calls print with that Vector
       print(3);
     };
-    \end{cppcode}
-  \end{exampleblockGB}
+  \end{cppcode}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -221,17 +219,15 @@
     \begin{itemize}
     \item avoid having to re-declare parent's constructors
     \item by stating that we inherit all parent constructors
-    \item derived class can add more constructors
     \end{itemize}
   \end{block}
   \begin{exampleblock}{Practically}
     \begin{cppcode}
       struct BaseClass {
-        BaseClass(int a);
+        BaseClass(int value);
       };
       struct DerivedClass : BaseClass {
         using BaseClass::BaseClass;
-        DerivedClass(int a, int b);
       };
       DerivedClass a{5};
     \end{cppcode}
