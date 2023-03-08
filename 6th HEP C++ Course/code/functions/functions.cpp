@@ -22,12 +22,19 @@ void printFiveCharacters(FastToCopy argument) {
     std::cout << argument.name << "\n";
 }
 
+void printFirstFiveCharacters(const SlowToCopy & argument) {
+    for (int i=0; i<=4; i++) {
+        std::cout << argument.name[i];
+    }
+    std::cout << std::endl;
+}
+
 int main() {
     FastToCopy fast = {"abcdef"};
     printFiveCharacters(fast);
 
     SlowToCopy slow = {"ghijkl"};
-    // print it here
+    printFirstFiveCharacters(slow);
 
     return 0;
 }
